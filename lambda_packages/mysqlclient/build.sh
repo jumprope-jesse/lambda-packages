@@ -88,8 +88,8 @@ function build_package {
 
     echo "install pips"
     TARGET_DIR=${ENV}/packaged
-    echo ${PIP} install --verbose --use-wheel --no-dependencies --target ${TARGET_DIR} "${PACKAGE}==${VERSION}"
-    ${PIP} install --verbose --use-wheel --no-dependencies --target ${TARGET_DIR} "${PACKAGE}==${VERSION}"
+    echo ${PIP} install --verbose --no-dependencies --target ${TARGET_DIR} "${PACKAGE}==${VERSION}"
+    ${PIP} install --verbose --no-dependencies --target ${TARGET_DIR} "${PACKAGE}==${VERSION}"
     deactivate
 
     TARGET_DIR=${ENV}/packaged
@@ -103,5 +103,5 @@ if [ ${PY2} == 1 ]; then
 fi
 
 if [ ${PY3} == 1 ]; then
-    build_package ${PACKAGE} ${VERSION} python3.6 pip3.6 "python3.6 -m venv "
+    build_package ${PACKAGE} ${VERSION} python3.7 pip3 "python3.7 -m venv "
 fi
